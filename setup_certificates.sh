@@ -20,7 +20,7 @@ keytool -import -file ca-cert.pem -alias CARoot -keystore clienttruststore -stor
 
 ## Client keystore: generate keypair
 keytool -genkeypair -alias clientkey -keyalg RSA -keysize 2048 \
-  -keystore clientkeystore -storepass password -keypass password -dname "CN=client"
+  -keystore clientkeystore -storepass password -keypass password -dname "CN=Daniel Bjarke (da8830bj-s)/Siere Herbert Heimdal (er3387he-s)/Vincent Lindell (vi6458li-s)/Linus Sköld (li5207sk-s)"
 ## Client CSR -> signed cert -> import CA and signed cert
 keytool -certreq -alias clientkey -file client.csr -keystore clientkeystore -storepass password
 openssl x509 -req -in client.csr -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -out client-cert.pem
