@@ -25,6 +25,10 @@ public class server implements Runnable {
       numConnectedClients++;
       System.out.println("client connected");
       System.out.println("client name (cert subject DN field): " + subject);
+      String issuer = ((X509Certificate) cert[0]).getIssuerX500Principal().getName();
+      System.out.println("client issuer (cert issuer DN field): " + issuer);
+      String serialNumber = ((X509Certificate) cert[0]).getSerialNumber().toString(16);
+      System.out.println("client serial number: " + serialNumber);
       System.out.println(numConnectedClients + " concurrent connection(s)\n");
 
       PrintWriter out = null;
